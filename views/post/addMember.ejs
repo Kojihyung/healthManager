@@ -1,0 +1,42 @@
+<body>
+    <div class = "inputInfos">
+        <form name = "infos" action = "/add-member" method = "POST" onsubmit="return formCheck(this)">
+            <div class="form-group">
+                <input
+                  type="text"
+                  class="form-control"
+                  name="title"
+                  id="title"
+                  placeholder="제목을 입력해 주세요."
+                />
+              </div>
+              <div class="form-group">
+                <textarea
+                  class="form-control"
+                  name="content"
+                  id="write-contents"
+                  rows="19"
+                  placeholder="내용을 입력해 주세요."
+                ></textarea>
+                <input type="submit" class="btn btn-primary btn-sm" value="글쓰기"/>
+              </div>
+
+        </form>
+    </div>
+
+
+</body>
+
+<script>
+    function formCheck(form){
+        if(postCheck()){
+        if(form.submitted) return false;
+
+        form.action = '';
+        form.method = 'POST';
+        form.submitted = true;
+        return true;
+        }
+        return false;
+    }
+</script>
