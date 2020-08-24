@@ -1,14 +1,14 @@
 <script type="text/javascript">
     var submitFlag = false;
     function postCheck(form){
-      if(form.title.value == 0){
-        alert('제목을 입력해주세요.');
-        form.title.focus();
+      if(form.name.value == 0){
+        alert('이름을 입력해주세요.');
+        form.name.focus();
         return false;
       }
-      if(form.content.value == 0){
-        alert('내용을 입력해주세요.');
-        form.content.focus();
+      if(form.phoneNumber.value == 0){
+        alert('핸드폰 번호를 입력해주세요.');
+        form.phoneNumber.focus();
         return false;
       }
       return true;
@@ -38,19 +38,19 @@
                 <input
                   type="text"
                   class="form-control"
-                  name="title"
-                  id="title"
-                  placeholder="제목을 입력해 주세요."
+                  name="name"
+                  id="name"
+                  placeholder="이름을 입력해 주세요."
                 />
               </div>
               <div class="form-group">
-                <textarea
+                <input
+                  type="text"
                   class="form-control"
-                  name="content"
-                  id="write-contents"
-                  rows="19"
-                  placeholder="내용을 입력해 주세요."
-                ></textarea>
+                  name="phoneNumber"
+                  id="phoneNumber"
+                  placeholder="핸드폰번호를 입력해 주세요."
+                />
                 <input type="submit"  class="btn btn-primary btn-sm" value="글쓰기"/>
               </div>
 

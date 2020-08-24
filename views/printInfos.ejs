@@ -1,0 +1,24 @@
+<body>
+    <div class="col-8">
+        <div class="row row d-flex justify-content-center">
+          <table class="table">
+            <thead class="table-primary">
+                <tr>
+                    <th class="text-center" scope="col" width="10%">번호</th>
+                    <th class="text-center" scope="col" width="60%">이름</th>
+                    <th class="text-center" scope="col" width="30%">전화번호</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    <% members.forEach((member,idx) => { %>
+                        <tr>
+                        <td class="member_id text-center"><%= member.id %></td>
+                        <td class="name text-truncate"><%= member.name%></td>
+                        <td class="phoneNumber text-center "><%= member.phoneNumber %></td>
+                        </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>

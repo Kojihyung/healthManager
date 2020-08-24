@@ -13,4 +13,6 @@ router.get("/add-member", function (req, res) {
 
 router.post("/add-member", postController.getAddMember);
 
+router.get("/infos", postController.getMemberInfos);
+
 module.exports = router;

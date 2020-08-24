@@ -9,11 +9,11 @@ const Member = sequelize.define("member", {
     allowNull: false,
     primaryKey: true,
   },
-  title: {
+  name: {
     type: Sequelize.STRING,
     allowNull: false,
   },
-  content: {
+  phoneNumber: {
     type: Sequelize.STRING,
     allowNull: false,
   },
