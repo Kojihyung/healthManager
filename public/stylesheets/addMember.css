@@ -1,0 +1,56 @@
+.form-control {
+    margin : 5px;
+    height: 30px;
+    width : 300px;
+}
+.form-group {
+    height : 50px;
+}
+.submit {
+    width: 400px;
+}
+.btn {
+    float: left; /* 플롯 중요 - 플롯 요소는 문서상 부유(흐르지만)하지만 다음 요소에 영향을 미치게 된다. */
+    width: 20%; /* 부모 400px 영역 안의 100% 사용 */
+    text-align: center;
+    margin-top: 10px;
+    border: 1px solid #168;
+    background-color: #f0f6f9;
+    color:#168;
+    font-size:15px;
+    padding-top:5px;
+    padding-bottom:5px;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+.btn:hover {
+    /* 버튼에 마우스 오버한 경우에 ::after 요소의 컬러를 애니메이션하기 위해 투명도로 변경 */
+    background-color: transparent;
+    /* or background-color: rgba(0,0,0,0); */
+
+}
+.submit::after {
+    /*
+     * 요소에 텍스트도 없는 빈 요소이기 때문에 플롯된 요소 영역에 자리잡게 된다.
+     * 만약 텍스트가 있다면 텍스트 노드는 떨어지겠지만 해당 영역은 플롯 요소가 100%를 사용하고 있기 때문에 플롯 요소 영역과 겹친다.
+     */
+    display: block;
+    width: 0;
+    height: 40px;
+    background-color: #fbfbfb;
+    -webkit-transition: .3s ease;
+    -moz-transition: .3s ease;
+    -o-transition: .3s ease;
+    -ms-transition: .3s ease;
+    transition: .3s ease;
+    content: "";
+}
+
+.submit:hover::after {
+    /* 마우스 오버시 width:0 을 100% 로 변경하여 배경컬러를 가득차도록 하여 애니메이션 효과를 나타낸다. */
+    width:100%;
+    background-color: white;
+}

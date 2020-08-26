@@ -13,6 +13,8 @@ exports.getAddMember = async (req, res, next) => {
         await Member.create({
             name: req.body.name,
             phoneNumber: req.body.phoneNumber,
+            startdate: req.body.startdate,
+            enddate: req.body.enddate,
         });
     
           const newMember = await Member.findOne({
@@ -23,6 +25,8 @@ exports.getAddMember = async (req, res, next) => {
             id: newMember.id,
             name: req.body.name,
             phoneNumber: req.body.phoneNumber,
+            startdate: req.body.startdate,
+            enddate: req.body.enddate,
         });
     }
 };

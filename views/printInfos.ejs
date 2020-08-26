@@ -1,12 +1,15 @@
+<link rel="stylesheet" href="stylesheets/printInfos.css" type="text/css">
 <body>
     <div class="col-8">
         <div class="row row d-flex justify-content-center">
           <table class="table">
             <thead class="table-primary">
                 <tr>
-                    <th class="text-center" scope="col" width="10%">번호</th>
-                    <th class="text-center" scope="col" width="60%">이름</th>
-                    <th class="text-center" scope="col" width="30%">전화번호</th>
+                    <th class="text-center" scope="col" width="5%">번호</th>
+                    <th class="text-center" scope="col" width="20%">이름</th>
+                    <th class="text-center" scope="col" width="20%">전화번호</th>
+                    <th class="text-center" scope="col" width="20%">시작일</th>
+                    <th class="text-center" scope="col" width="20%">종료일</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -15,6 +18,8 @@
                         <td class="member_id text-center"><%= member.id %></td>
                         <td class="name text-truncate"><%= member.name%></td>
                         <td class="phoneNumber text-center "><%= member.phoneNumber %></td>
+                        <td class="startdate text-center "><%= member.startdate %></td>
+                        <td class="enddate text-center "><%= member.enddate %></td>
                         </tr>
                     <% }) %>
                 </tbody>

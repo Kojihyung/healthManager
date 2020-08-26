@@ -2,6 +2,7 @@ var express = require('express');
 var app = express();
 const router = require('./routes/router');
 var bodyParser = require('body-parser');
+var path = require('path');
 
 const {sequelize,DB_INFO} = require("./util/database");
 const session = require("express-session");
@@ -19,6 +20,8 @@ app.use(
       store: store
     })
   );
+
+  app.use(express.static(__dirname + '/public'));
 
 // dirname 뒤가 views와 관련된 디렉토리 주소
 // 예를 들어 dirname + '/views/post' 하면 view와 관련된게 다 post 위치로 잡히더라
