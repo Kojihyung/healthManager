@@ -2,15 +2,14 @@ var express = require('express');
 var app = express();
 const router = require('./routes/router');
 var bodyParser = require('body-parser');
-var path = require('path');
 
 const {sequelize,DB_INFO} = require("./util/database");
 const session = require("express-session");
+const Member = require('./models/Member');
+const BodyInfo = require('./models/bodyInfo');
 const MySQLStore = require("express-mysql-session")(session);
 
 const store = new MySQLStore(DB_INFO);
-
-const Member = require("./models/member");
 
 app.use(
     session({
@@ -33,6 +32,8 @@ app.use(bodyParser.urlencoded({
     extended: true
   }));
   
+BodyInfo.belongsTo(Member);
+
 app.use(router);
 
 sequelize

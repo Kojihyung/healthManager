@@ -14,12 +14,14 @@
                 </thead>
                 <tbody>
                     <% members.forEach((member,idx) => { %>
-                        <tr>
-                        <td class="member_id text-center"><%= member.id %></td>
-                        <td class="name text-truncate"><%= member.name%></td>
-                        <td class="phoneNumber text-center "><%= member.phoneNumber %></td>
-                        <td class="startdate text-center "><%= member.startdate %></td>
-                        <td class="enddate text-center "><%= member.enddate %></td>
+                        <tr onclick="location.href='/member/<%=member.id %>'" style="cursor:hand">
+                        
+                            <td class="member_id text-center"><%= member.id %></td>
+                            <td class="name text-truncate"><%= member.name%></td>
+                            <td class="phoneNumber text-center "><%= member.phoneNumber %></td>
+                            <td class="startdate text-center "><%= member.startdate %></td>
+                            <td class="enddate text-center "><%= member.enddate %></td>
+                        
                         </tr>
                     <% }) %>
                 </tbody>

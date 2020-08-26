@@ -1,3 +1,5 @@
+<%- include('../includes/head.ejs') %>
+
 <link rel="stylesheet" href="stylesheets/addMember.css" type="text/css">
 
 <script type="text/javascript">
@@ -25,7 +27,6 @@
         
       if(postCheck(form)){
         if(form.submitted) return false;
-        // 얘 하면 다시 돌아오는데? 음 으응ㅁ??
         form.action = '';
         form.method = 'POST';
         form.submitted = true;
@@ -39,6 +40,7 @@
   </script>
 
 <body>
+  <%- include('../includes/header.ejs') %>
     <div class = "inputInfos">
         <form name = "infos" action = "/add-member" method = "POST" onsubmit="return formCheck(this)">
             <div class="form-group">
@@ -78,7 +80,6 @@
               <div>
                 <input type="submit"  class="btn btn-primary btn-sm" value="회원 추가"/>
               </div>
-
         </form>
     </div>
 </body>

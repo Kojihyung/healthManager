@@ -1,0 +1,15 @@
+<%- include('../includes/head.ejs') %>
+
+<body>
+    <%- include('../includes/header.ejs') %>
+    [회원정보]<br/>
+    회원번호 : <%= member.id %> <br/>
+    이름 : <%= member.name %> <br/>
+    전화번호 : <%= member.phoneNumber %> <br/>
+    시작일 : <%= member.startdate %> <br/>
+    
+    종료일 : <%= member.enddate %> <br/>
+    남은기간 : <%= restdate %>일<br/>
+
+    <button onclick="location.href='/add-bodyinfo/<%=member.id %>'">몸무게 정보 추가하기</button>
+</body>
