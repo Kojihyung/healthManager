@@ -1,7 +1,10 @@
+<link rel="stylesheet" href="../../public/stylesheets/printInfos.css" type="text/css">
+
 <%- include('../includes/head.ejs') %>
 
 <body>
     <%- include('../includes/header.ejs') %>
+    
     [회원정보]<br/>
     회원번호 : <%= member.id %> <br/>
     이름 : <%= member.name %> <br/>
@@ -10,6 +13,28 @@
     
     종료일 : <%= member.enddate %> <br/>
     남은기간 : <%= restdate %>일<br/>
+
+    [출석정보] <br/>
+    <div class="col-8">
+        <div class="row row d-flex justify-content-center">
+    <table class="table">
+        <thead class="table-primary">
+            <tr>
+                <th class="text-center" scope="col" width="10%">번호</th>
+                <th class="text-center" scope="col" width="90%">날짜시간</th>
+              </tr>
+            </thead>
+            <tbody>
+                <% days.forEach((day,idx) => { %>
+                    <tr style="cursor:hand">
+                        <td class="id text-center"><%= idx+1 %></td>
+                        <td class="day text-center"><%= day.days %></td>
+                    </tr>
+                <% }) %>
+            </tbody>
+        </table>
+    </div>
+    </div>
 
     <button onclick="location.href='/add-bodyinfo/<%=member.id %>'">몸무게 정보 추가하기</button>
 </body>

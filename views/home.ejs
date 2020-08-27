@@ -1,8 +1,18 @@
 <%- include('includes/head.ejs')%>
 
+<script type="text/javascript" src="/node_modules/jquery/dist/jquery.js"></script>
+
 <body>
+    <script>
+        function getUser(){
+            window.location.reload();
+        }
+    </script>
     <%- include('includes/header.ejs') %>
-    메인 페이지<br/>
-    [회원정보]
-    <%- include('printInfos.ejs') %>
+    <h1>Main</h1><br/>
+    [최근 출석자]<br/>
+    <button onclick="getUser()">새로고침</button><br/>
+    <%- include('memberInfo/guestInfoForManager.ejs') %><br/>
+    [회원정보]<br/>
+    <%- include('printInfos.ejs') %><br/>
 </body>

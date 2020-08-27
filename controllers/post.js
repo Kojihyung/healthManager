@@ -1,4 +1,5 @@
 const Member = require("../models/member");
+const AttendedDay = require("../models/attendedDay");
 
 exports.getAddMember = async (req, res, next) => {
     const existed = await Member.findOne({
@@ -15,7 +16,7 @@ exports.getAddMember = async (req, res, next) => {
             phoneNumber: req.body.phoneNumber,
             startdate: req.body.startdate,
             enddate: req.body.enddate,
-        });
+        },);
     
           const newMember = await Member.findOne({
             where: { phoneNumber: req.body.phoneNumber}

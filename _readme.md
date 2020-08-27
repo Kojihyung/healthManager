@@ -7,3 +7,9 @@ npm install mysql2
 npm install express-session
 npm install express-mysql-session
 npm install mysql
+
+npm install socket.io express
+
+npm install jquery
+
+https://poiemaweb.com/nodejs-socketio

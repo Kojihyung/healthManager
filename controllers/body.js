@@ -25,20 +25,20 @@ exports.getAddBody = async (req, res, next) => {
     const member = await Member.findByPk(memberId);
 
     const existed = await Body.findOne({
-        where: { memberId: req.params.memberId}
+        where: { memID: req.params.memberId}
     })
     if(existed !== null){
         await Body.update({
             weight: req.body.weight,
-            memberId: req.params.memberId,
+            memID: req.params.memberId,
          },{
-             where: {memberId: req.params.memberId}
+             where: {memID: req.params.memberId}
          });
     }
     else{
         await Body.create({
             weight: req.body.weight,
-            memberId: req.params.memberId,
+            memID: req.params.memberId,
          });
     }
 

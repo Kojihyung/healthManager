@@ -1,4 +1,5 @@
 const Member = require("../models/member");
+const AttendedDay = require("../models/attendedDay");
 
 function cal(enddate){
     var rest = 
@@ -7,14 +8,24 @@ function cal(enddate){
 }
 
 exports.getMemberInfo = async (req, res, next) => {
-    const { memberId } = req.params;
 
-    const member = await Member.findByPk(memberId);
+    const id_ = await req.params.memberId;
+    
+    const days = await AttendedDay.findAll({
+      where: {memID : req.params.memberId}
+    });
+
+    const member = await Member.findAll({
+      where: {id : id_}
+    });
+
     res.render("memberInfo/memberInfo", {
-        member,
-        restdate : cal(member.enddate)
+        member : member[0],
+        restdate : cal(member[0].enddate),
+        days
     });
   };
+
   
 function parseDate(input) {
     var parts = input.match(/(\d+)/g);

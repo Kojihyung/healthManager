@@ -1,0 +1,12 @@
+<body>
+    [회원정보]<br/>
+    회원번호 : <%= member.id %> <br/>
+    이름 : <%= member.name %> <br/>
+    전화번호 : <%= member.phoneNumber %> <br/>
+    시작일 : <%= member.startdate %> <br/>
+    
+    종료일 : <%= member.enddate %> <br/>
+    남은기간 : <%= restdate %>일<br/>
+
+    <button onclick="location.href='/attend'">다른 사람 출석</button>
+</body>

@@ -7,9 +7,13 @@ const {sequelize,DB_INFO} = require("./util/database");
 const session = require("express-session");
 const Member = require('./models/Member');
 const BodyInfo = require('./models/bodyInfo');
+const Day = require('./models/attendedDay');
 const MySQLStore = require("express-mysql-session")(session);
 
 const store = new MySQLStore(DB_INFO);
+
+const path = require('path');
+
 
 app.use(
     session({
@@ -22,6 +26,9 @@ app.use(
 
   app.use(express.static(__dirname + '/public'));
 
+  app.use('/public', express.static('public'));
+  app.use('/node_modules', express.static(path.join(__dirname, '/node_modules')));
+
 // dirname 뒤가 views와 관련된 디렉토리 주소
 // 예를 들어 dirname + '/views/post' 하면 view와 관련된게 다 post 위치로 잡히더라
 app.set('views', __dirname + '/views');
@@ -31,8 +38,6 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({
     extended: true
   }));
-  
-BodyInfo.belongsTo(Member);
 
 app.use(router);
 
