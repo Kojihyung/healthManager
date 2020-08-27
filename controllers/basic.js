@@ -1,5 +1,6 @@
 const Member = require("../models/member");
 const Attendance = require("../models/attendance");
+const AttendedDay = require("../models/attendedDay");
 
 exports.getHome = async (req, res, next) => {
     let page = req.query.page || 0;
@@ -18,11 +19,24 @@ exports.getHome = async (req, res, next) => {
         where: { id: attendee.memberID }
     })
 
+    const attends = await AttendedDay.findAll({
+      where: {memID : 1}
+    });
+    var arr = new Array();
+
+    await attends.forEach(function(item, index, arr2){
+        console.log(item.days.slice(0,10));
+        arr.push({title: item.memID, start: item.days.slice(0,10)});
+    });
+
+    console.log(arr);
+
 
     res.render("home", {
         members: rows,
         member: existed,
-        restdate: cal(existed.enddate)
+        restdate: cal(existed.enddate),
+        eventList : arr,
     })
   };
 

@@ -14,7 +14,6 @@ const store = new MySQLStore(DB_INFO);
 
 const path = require('path');
 
-
 app.use(
     session({
       secret: "dplandplan",

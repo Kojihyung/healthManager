@@ -13,3 +13,7 @@ npm install socket.io express
 npm install jquery
 
 https://poiemaweb.com/nodejs-socketio
+
+npm install fullcalendar
+npm install moment
+npm install --save @fullcalendar/core @fullcalendar/daygrid

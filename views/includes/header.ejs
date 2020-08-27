@@ -1,17 +1,24 @@
 <link rel="stylesheet" href="../../public/stylesheets/header.css" type="text/css">
 
+<script>
+$('registButton').click(function(event){  //버튼을 클릭 했을시 popupOpen 함수 출력 
+        console.log('click');
+        popupOpen();	//Popup Open 함수
+    });
+  
+	function popupOpen(url){
+		var winWidth = 700;
+	    var winHeight = 600;
+	    var popupOption= "width="+winWidth+", height="+winHeight;    //팝업창 옵션(optoin)
+		window.open(url,"",popupOption);
+	}
+</script>
+
 <header
   class="row pt-5 pb-2 border-primary mb-4"
 >
   <div class="col-10 pb-4 text-center">
-    <a href="/add-member">
-      <button width="300" height="105">회원 등록</button>
-    </a>
-    <a href="/">
-        <button width="300" height="105">홈</button>
-      </a>
-      <a href="/search">
-        <button width="300" height="105">회원조회</button>
-      </a>
+      <button onclick="popupOpen('/add-member')" width="300" height="105">회원 등록</button>
+        <button onclick="popupOpen('/search')" width="300" height="105">회원조회</button>
   </div>
 </header>

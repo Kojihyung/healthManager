@@ -1,18 +1,45 @@
 <%- include('includes/head.ejs')%>
 
-<script type="text/javascript" src="/node_modules/jquery/dist/jquery.js"></script>
+<script>
+    
+
+  </script>
 
 <body>
     <script>
         function getUser(){
             window.location.reload();
         }
+        
+    document.addEventListener('DOMContentLoaded', function() {
+      var calendarEl = document.getElementById('calendar');
+      var calendar = new FullCalendar.Calendar(calendarEl, {
+        initialView: 'dayGridMonth',
+      });
+      calendar.render();
+    });
+    
     </script>
+
+    <div>
+
     <%- include('includes/header.ejs') %>
     <h1>Main</h1><br/>
-    [최근 출석자]<br/>
     <button onclick="getUser()">새로고침</button><br/>
+    <button id="button2" onclick="exec()">눌러</button><br/>
+    [최근 출석자]<br/>
     <%- include('memberInfo/guestInfoForManager.ejs') %><br/>
     [회원정보]<br/>
     <%- include('printInfos.ejs') %><br/>
+</div>
+
+<script>
+    function exec(list){
+        alert(list);
+        $('#calendar').fullCalendar({ events: list});
+    }
+</script>
+<div id='calendar'>
+</div>
+    
 </body>
