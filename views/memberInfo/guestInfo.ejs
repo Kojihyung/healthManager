@@ -1,12 +1,35 @@
 <body>
-    [회원정보]<br/>
-    회원번호 : <%= member.id %> <br/>
-    이름 : <%= member.name %> <br/>
-    전화번호 : <%= member.phoneNumber %> <br/>
-    시작일 : <%= member.startdate %> <br/>
-    
-    종료일 : <%= member.enddate %> <br/>
-    남은기간 : <%= restdate %>일<br/>
+    [회원정보]
+    <div>
+        <table class="table">
+                <tbody>
+                        <tr style="cursor:hand">
+                            <td class="id text-center">회원번호</td>
+                            <td class="name text-center"><%= member.id %></td>
+                        </tr>
+                        <tr style="cursor:hand">
+                            <td class="id text-center">이름</td>
+                            <td class="name text-center"><%= member.name %></td>
+                        </tr>
+                        <tr style="cursor:hand">
+                            <td class="id text-center">전화번호</td>
+                            <td class="name text-center"><%= member.phoneNumber %></member></td>
+                        </tr>
+                        <tr style="cursor:hand">
+                            <td class="id text-center">시작일</td>
+                            <td class="name text-center"><%= member.startdate %></td>
+                        </tr>
+                        <tr style="cursor:hand">
+                            <td class="id text-center">종료일</td>
+                            <td class="name text-center"><%= member.enddate %></td>
+                        </tr>
+                        <tr style="cursor:hand">
+                            <td class="id text-center">남은기간</td>
+                            <td class="name text-center"><%= restdate %></td>
+                        </tr>
+                </tbody>
+            </table>
+    </div>
 
     <button onclick="location.href='/attend'">다른 사람 출석</button>
 </body>

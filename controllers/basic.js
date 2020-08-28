@@ -25,18 +25,14 @@ exports.getHome = async (req, res, next) => {
     var arr = new Array();
 
     await attends.forEach(function(item, index, arr2){
-        console.log(item.days.slice(0,10));
         arr.push({title: item.memID, start: item.days.slice(0,10)});
     });
-
-    console.log(arr);
-
 
     res.render("home", {
         members: rows,
         member: existed,
         restdate: cal(existed.enddate),
-        eventList : arr,
+        eventList : JSON.stringify(arr),
     })
   };
 

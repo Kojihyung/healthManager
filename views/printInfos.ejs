@@ -1,4 +1,12 @@
 <link rel="stylesheet" href="stylesheets/printInfos.css" type="text/css">
+<script>
+    function popupOpen(url){
+		var winWidth = 700;
+	    var winHeight = 600;
+	    var popupOption= "width="+winWidth+", height="+winHeight;    //팝업창 옵션(optoin)
+		window.open(url,"",popupOption);
+	}
+</script>
 <body>
     <div class="col-8">
         <div class="row row d-flex justify-content-center">
@@ -14,7 +22,7 @@
                 </thead>
                 <tbody>
                     <% members.forEach((member,idx) => { %>
-                        <tr onclick="location.href='/member/<%=member.id %>'" style="cursor:hand">
+                        <tr onclick="popupOpen('/member/<%=member.id %>')" style="cursor:hand">
                         
                             <td class="member_id text-center"><%= member.id %></td>
                             <td class="name text-truncate"><%= member.name%></td>

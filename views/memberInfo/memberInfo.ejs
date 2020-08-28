@@ -1,19 +1,58 @@
 <link rel="stylesheet" href="../../public/stylesheets/printInfos.css" type="text/css">
-
 <%- include('../includes/head.ejs') %>
 
 <body>
-    
-    [회원정보]<br/>
-    회원번호 : <%= member.id %> <br/>
-    이름 : <%= member.name %> <br/>
-    전화번호 : <%= member.phoneNumber %> <br/>
-    시작일 : <%= member.startdate %> <br/>
-    
-    종료일 : <%= member.enddate %> <br/>
-    남은기간 : <%= restdate %>일<br/>
 
-    [출석정보] <br/>
+<script>
+window.addEventListener("load", function() {
+    var myval = '<%- eventList %>';
+
+    var calendarEl = document.getElementById('calendarmem');
+    var calendar = new FullCalendar.Calendar(calendarEl, {
+      initialView: 'dayGridMonth',
+      events: JSON.parse(myval)
+    });
+    calendar.render();
+  });
+  
+</script>
+    [회원정보]
+    <div>
+        <table class="table">
+                <tbody>
+                        <tr style="cursor:hand">
+                            <td class="id text-center">회원번호</td>
+                            <td class="name text-center"><%= member.id %></td>
+                        </tr>
+                        <tr style="cursor:hand">
+                            <td class="id text-center">이름</td>
+                            <td class="name text-center"><%= member.name %></td>
+                        </tr>
+                        <tr style="cursor:hand">
+                            <td class="id text-center">전화번호</td>
+                            <td class="name text-center"><%= member.phoneNumber %></member></td>
+                        </tr>
+                        <tr style="cursor:hand">
+                            <td class="id text-center">시작일</td>
+                            <td class="name text-center"><%= member.startdate %></td>
+                        </tr>
+                        <tr style="cursor:hand">
+                            <td class="id text-center">종료일</td>
+                            <td class="name text-center"><%= member.enddate %></td>
+                        </tr>
+                        <tr style="cursor:hand">
+                            <td class="id text-center">남은기간</td>
+                            <td class="name text-center"><%= restdate %></td>
+                        </tr>
+                </tbody>
+            </table>
+    </div>
+
+    <button onclick="location.href='/add-bodyinfo/<%=member.id %>'">몸무게 정보 추가하기</button><br/>
+    
+    <div id='calendarmem'>
+    </div>
+    <!--[출석정보] <br/>
     <div class="col-8">
         <div class="row row d-flex justify-content-center">
     <table class="table">
@@ -33,7 +72,12 @@
             </tbody>
         </table>
     </div>
-    </div>
+        
+    
+    </div>-->
 
-    <button onclick="location.href='/add-bodyinfo/<%=member.id %>'">몸무게 정보 추가하기</button>
+    
+
+
+    
 </body>

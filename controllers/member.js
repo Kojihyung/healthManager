@@ -19,10 +19,20 @@ exports.getMemberInfo = async (req, res, next) => {
       where: {id : id_}
     });
 
+    const attends = await AttendedDay.findAll({
+      where: {memID : id_}
+    });
+    var arr = new Array();
+
+    await attends.forEach(function(item, index, arr2){
+        arr.push({title: item.memID, start: item.days.slice(0,10)});
+    });
+
     res.render("memberInfo/memberInfo", {
         member : member[0],
         restdate : cal(member[0].enddate),
-        days
+        days,
+        eventList: JSON.stringify(arr)
     });
   };
 

@@ -5,9 +5,9 @@ var bodyParser = require('body-parser');
 
 const {sequelize,DB_INFO} = require("./util/database");
 const session = require("express-session");
-const Member = require('./models/Member');
-const BodyInfo = require('./models/bodyInfo');
-const Day = require('./models/attendedDay');
+//const Member = require('./models/Member');
+//const BodyInfo = require('./models/bodyInfo');
+//const Day = require('./models/attendedDay');
 const MySQLStore = require("express-mysql-session")(session);
 
 const store = new MySQLStore(DB_INFO);
