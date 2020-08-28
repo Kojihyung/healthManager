@@ -148,6 +148,8 @@ header {
     header .contentHolder nav ol li a {
       font-size: ems(18px);
       padding: 18px;
+      padding-left: 30px;
+      padding-right: 30px;
     }
     header .contentHolder nav ol li a:after {
       content: '';
@@ -157,6 +159,7 @@ header {
       margin-top: 15px;
       max-width: 325px;
       padding-top: 0;
+      
     }
   }
   @media screen and (max-width: 850px) {
@@ -243,6 +246,7 @@ header {
     }
     header .contentHolder .logo img {
       max-width: 100%;
+      
     }
 
   }
@@ -250,6 +254,7 @@ header {
     float: left;
     margin-right: auto;
     max-width: 350px;
+    padding-right: 30px;
   }
   @media screen and (max-width: 600px) {
     header {

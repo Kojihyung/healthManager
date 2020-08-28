@@ -3,82 +3,58 @@
 <link rel="stylesheet" href="stylesheets/addMember.css" type="text/css">
 
 <script type="text/javascript">
-    var submitFlag = false;
-    function postCheck(form){
-      if(form.name.value == 0){
-        alert('이름을 입력해주세요.');
-        form.name.focus();
-        return false;
-      }
-      if(form.phoneNumber.value == 0){
-        alert('핸드폰 번호를 입력해주세요.');
-        form.phoneNumber.focus();
-        return false;
-      }
-      if(form.startdate.value > form.enddate.value){
-        alert('끝날짜가 시작날짜보다 뒤입니다.');
-        form.enddate.focus();
-        return false;
-      }
-      return true;
-    }
-  
-    function formCheck(form){
-        
-      if(postCheck(form)){
-        if(form.submitted) return false;
-        form.action = '';
-        form.method = 'POST';
-        form.submitted = true;
-
-        return true;
-      }
-      
+  var submitFlag = false;
+  function postCheck(form) {
+    if (form.name.value == 0) {
+      alert('이름을 입력해주세요.');
+      form.name.focus();
       return false;
     }
-    
-  </script>
+    if (form.phoneNumber.value == 0) {
+      alert('핸드폰 번호를 입력해주세요.');
+      form.phoneNumber.focus();
+      return false;
+    }
+    if (form.startdate.value > form.enddate.value) {
+      alert('끝날짜가 시작날짜보다 뒤입니다.');
+      form.enddate.focus();
+      return false;
+    }
+    return true;
+  }
+
+  function formCheck(form) {
+
+    if (postCheck(form)) {
+      if (form.submitted) return false;
+      form.action = '';
+      form.method = 'POST';
+      form.submitted = true;
+
+      return true;
+    }
+
+    return false;
+  }
+
+</script>
 
 <body>
-    <div class = "inputInfos">
-        <form name = "infos" action = "/add-member" method = "POST" onsubmit="return formCheck(this)">
-            <div class="form-group">
-                <input
-                  type="text"
-                  class="form-control"
-                  name="name"
-                  id="name"
-                  placeholder="이름을 입력해 주세요."
-                />
-              </div>
-              <div class="form-group">
-                <input
-                  type="text"
-                  class="form-control"
-                  name="phoneNumber"
-                  id="phoneNumber"
-                  placeholder="핸드폰번호를 입력해 주세요."
-                />
-              </div>
-              <div class="form-group">
-                <input
-                  type="date"
-                  class="form-control"
-                  name="startdate"
-                  id="startdate"
-                  placeholder="시작 날짜"
-                />
-                <input
-                  type="date"
-                  class="form-control"
-                  name="enddate"
-                  id="enddate"
-                  placeholder="종료 날짜"
-                />
-              </div>
-              <div>
-                <input type="submit"  class="btn btn-primary btn-sm" value="회원 추가"/>
-              </div>
-        </form>
-    </div>
+  <div class="inputInfos">
+    <form name="infos" action="/add-member" method="POST" onsubmit="return formCheck(this)">
+      <div class="form-group">
+        <input type="text" class="form-control" name="name" id="name" placeholder="이름을 입력해 주세요." />
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-control" name="phoneNumber" id="phoneNumber" placeholder="핸드폰번호를 입력해 주세요." />
+      </div>
+      <div class="form-group">
+        <input type="date" class="form-control" name="startdate" id="startdate" placeholder="시작 날짜" />
+        <input type="date" class="form-control" name="enddate" id="enddate" placeholder="종료 날짜" />
+      </div>
+      <div>
+        <input type="submit" class="btn btn-primary btn-sm" value="회원 추가" />
+      </div>
+    </form>
+  </div>
 </body>

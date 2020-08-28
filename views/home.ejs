@@ -1,18 +1,29 @@
 <%- include('includes/head.ejs')%>
 
+<link rel="stylesheet" href="../public/stylesheets/home.css" type="text/css">
 
 <body>
 
   <%- include('includes/header.ejs') %>
 
-    <div style="margin: 20px">    
-    <!--<button onclick="getUser()">새로고침</button><br/>-->
-<br/><br/><br/>
-    [최근 출석자]<br/>
-    <%- include('memberInfo/guestInfoForManager.ejs') %><br/>
-    [회원리스트]<br/>
-    <%- include('printInfos.ejs') %><br/>
-</div>
-<%- include('includes/footer.ejs') %>
+  <div style="width:100%;margin: 20px;">
+    <div style="width:50%;float:left;box-sizing: border-box;">
+      <!--<button onclick="getUser()">새로고침</button><br/>-->
+      <br /><br /><br />
+      <h2>최근 출석자</h2><br />
+      <%- include('memberInfo/guestInfoForManager.ejs') %><br />
+    </div>
+    <div style="width: 50%;float:left;box-sizing: border-box;">
+      <br /><br /><br />
+      <h2>?????</h2><br />
+      여긴 뭐하지<br/>
+      뭘 띄워야 잘 띄웠다고 소문이 나지
+    </div>
+    <div style="clear:both">
+      <h2>회원리스트</h2><br />
+      <%- include('printInfos.ejs') %><br />
+    </div>
+  </div>
+  <%- include('includes/footer.ejs') %>
 
 </body>

@@ -17,3 +17,5 @@ https://poiemaweb.com/nodejs-socketio
 npm install fullcalendar
 npm install moment
 npm install --save @fullcalendar/core @fullcalendar/daygrid
+
+healthmng.site 로 도메인 구매해둠 승인 대기중

@@ -1,36 +1,37 @@
 <link rel="stylesheet" href="stylesheets/printInfos.css" type="text/css">
 <script>
-    function popupOpen(url){
-		var winWidth = 700;
-	    var winHeight = 600;
-	    var popupOption= "width="+winWidth+", height="+winHeight;    //팝업창 옵션(optoin)
-		window.open(url,"",popupOption);
-	}
+    function popupOpen(url) {
+        var winWidth = 700;
+        var winHeight = 600;
+        var popupOption = "width=" + winWidth + ", height=" + winHeight;    //팝업창 옵션(optoin)
+        window.open(url, "", popupOption);
+    }
 </script>
+
 <body>
     <div class="col-8">
         <div class="row row d-flex justify-content-center">
-          <table class="table">
-            <thead class="table-primary">
-                <tr>
-                    <th class="text-center" scope="col" width="5%">번호</th>
-                    <th class="text-center" scope="col" width="20%">이름</th>
-                    <th class="text-center" scope="col" width="20%">전화번호</th>
-                    <th class="text-center" scope="col" width="20%">시작일</th>
-                    <th class="text-center" scope="col" width="20%">종료일</th>
-                  </tr>
+            <table class="table">
+                <thead class="table-primary">
+                    <tr>
+                        <th class="text-center" scope="col" width="5%">번호</th>
+                        <th class="text-center" scope="col" width="20%">이름</th>
+                        <th class="text-center" scope="col" width="20%">전화번호</th>
+                        <th class="text-center" scope="col" width="20%">시작일</th>
+                        <th class="text-center" scope="col" width="20%">종료일</th>
+                    </tr>
                 </thead>
                 <tbody>
                     <% members.forEach((member,idx) => { %>
-                        <tr onclick="popupOpen('/member/<%=member.id %>')" style="cursor:hand">
-                        
-                            <td class="member_id text-center"><%= member.id %></td>
-                            <td class="name text-truncate"><%= member.name%></td>
-                            <td class="phoneNumber text-center "><%= member.phoneNumber %></td>
-                            <td class="startdate text-center "><%= member.startdate %></td>
-                            <td class="enddate text-center "><%= member.enddate %></td>
-                        
-                        </tr>
+                    <tr onclick="popupOpen('/member/<%=member.id %>')" style="cursor:hand">
+
+                        <td class="member_id text-center"><%= member.id %></td>
+                        <td class="name text-truncate"><%= member.name%></td>
+                        <td class="phoneNumber text-center "><%= member.phoneNumber %></td>
+                        <td class="startdate text-center "><%= member.startdate %></td>
+                        <td class="enddate text-center "><%= member.enddate %></td>
+
+                    </tr>
                     <% }) %>
                 </tbody>
             </table>

@@ -2,21 +2,15 @@
 
 <body>
     <div>
-        <form name = "searchID" action = "/search" method = "POST">
-            <div>    
-            <input
-                    type="text"
-                    class="form-control"
-                    name="search"
-                    id="search"
-                    placeholder="찾을 id 입력"
-                />
+        <form name="searchID" action="/search" method="POST">
+            <div>
+                <input type="text" class="form-control" name="search" id="search" placeholder="찾을 id 입력" />
             </div>
             <div>
-                <input type="submit" class="search submit" value="검색"/>
-              </div>
+                <input type="submit" class="search submit" value="검색" />
+            </div>
         </form>
     </div>
     <%- include('../printInfos.ejs') %>
-    
+
 </body>
