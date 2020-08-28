@@ -1,4 +1,21 @@
+<script src="../../node_modules/socket.io-client/dist/socket.io.js"></script>
+<script src="../../node_modules/jquery/dist/jquery.min.js"></script>
+
 <body>
+    <script>
+        $(function () {
+            // socket.io 서버에 접속한다
+            var socket = io();
+
+            // 서버로 자신의 정보를 전송한다.
+            $("form").submit(function (e) {
+                // 서버로 메시지를 전송한다.
+                socket.emit("clicked");
+            });
+
+
+        })
+    </script>
     <div>
         <form name="attend" action="/attend" method="POST">
             <div>
