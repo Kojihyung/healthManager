@@ -8,18 +8,29 @@
 
             var calendarEl = document.getElementById('calendarmem');
             var calendar = new FullCalendar.Calendar(calendarEl, {
-                initialView: 'dayGridMonth',
+                headerToolbar: {
+                    left: 'prev',
+                    center: 'title',
+                    right: 'next'
+                },
+                titleFormat: { year: 'numeric', month: '2-digit' } ,
+                eventLimit: true,
+                editable: false,
+                navLinks: false,
                 events: JSON.parse(myval),
-                locale: 'ko', 
-                eventLimit : true
+                locale: 'ko',
+                eventLimit: true,
+
             });
             calendar.render();
         });
 
     </script>
 
-    <div style="margin:20px;">
+    <div style="margin:20px; display: flex; flex-direction: column;align-items: center;">
+
         <h3 style="margin-bottom: 20px;">회원정보</h3>
+
         <table style="width:80%;" class="table">
             <tbody>
                 <tr style="cursor:hand;">
@@ -48,13 +59,15 @@
                     <td class="name text-center"><%= restdate %></td>
                 </tr>
             </tbody>
-        </table>
+        </table> <br />
+
+        <button onclick="location.href='/add-bodyinfo/<%=member.id %>'">몸무게 정보 추가하기</button><br />
     </div>
 
-    <button onclick="location.href='/add-bodyinfo/<%=member.id %>'">몸무게 정보 추가하기</button><br />
+    
 
     <br /><br />
-    <div style = "font-size:10px;" id='calendarmem'>
+    <div style="font-size:10px;" id='calendarmem'>
     </div>
     <!--[출석정보] <br/>
     <div class="col-8">
