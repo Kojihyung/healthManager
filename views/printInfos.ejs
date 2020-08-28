@@ -14,22 +14,32 @@
             <table class="table">
                 <thead class="table-primary">
                     <tr>
-                        <th class="text-center" scope="col" width="5%">번호</th>
+                        <th class="text-center" scope="col" width="5%"></th>
                         <th class="text-center" scope="col" width="20%">이름</th>
                         <th class="text-center" scope="col" width="20%">전화번호</th>
                         <th class="text-center" scope="col" width="20%">시작일</th>
                         <th class="text-center" scope="col" width="20%">종료일</th>
+                        <th class="text-center" scope="col" width="20%">수정/삭제</th>
                     </tr>
                 </thead>
                 <tbody>
                     <% members.forEach((member,idx) => { %>
-                    <tr onclick="popupOpen('/member/<%=member.id %>')" style="cursor:hand">
+                    <tr style="cursor:hand">
 
-                        <td class="member_id text-center"><%= member.id %></td>
-                        <td class="name text-truncate"><%= member.name%></td>
+                        <td onclick="popupOpen('/member/<%=member.id %>')" class="member_id text-center"><%= member.id %></td>
+                        <td onclick="popupOpen('/member/<%=member.id %>')" class="name text-truncate"><%= member.name%></td>
                         <td class="phoneNumber text-center "><%= member.phoneNumber %></td>
                         <td class="startdate text-center "><%= member.startdate %></td>
                         <td class="enddate text-center "><%= member.enddate %></td>
+                        <td style="display: flex; justify-content: center;" class="enddate text-center ">
+                            <form action="/delete/<%=member.id%>" method="post">
+                                <input type="submit" value="삭제"></input>&nbsp; 
+                            </form> 
+                            <form action="/edit/<%=member.id%>" method="post">
+                                <input type="submit" value="수정"></input>
+                            </form>
+                        </td>
+                        
 
                     </tr>
                     <% }) %>
