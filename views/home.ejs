@@ -1,17 +1,18 @@
 <%- include('includes/head.ejs')%>
 
+
 <body>
 
-    <div>
+  <%- include('includes/header.ejs') %>
 
-      <br/><br/><br/><br/>
-
-    <%- include('includes/header.ejs') %>
+    <div style="margin: 20px">    
     <!--<button onclick="getUser()">새로고침</button><br/>-->
+<br/><br/><br/>
     [최근 출석자]<br/>
     <%- include('memberInfo/guestInfoForManager.ejs') %><br/>
     [회원리스트]<br/>
     <%- include('printInfos.ejs') %><br/>
 </div>
+<%- include('includes/footer.ejs') %>
 
 </body>

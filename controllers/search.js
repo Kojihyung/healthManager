@@ -1,4 +1,5 @@
 const Member = require("../models/member");
+const AttendedDay = require("../models/attendedDay");
 
 function cal(enddate){
     var rest = 
@@ -24,9 +25,24 @@ exports.searchMember = async (req, res, next) => {
     // 윗 줄은 왜 안될까.. await가 잘 안 먹는다ㅠ
     const member = await Member.findByPk(req.body.search);
 
+    const days = await AttendedDay.findAll({
+      where: {memID : req.body.search}
+    });
+
+    const attends = await AttendedDay.findAll({
+      where: {memID : req.body.search}
+    });
+    var arr = new Array();
+
+    await attends.forEach(function(item, index, arr2){
+        arr.push({title: item.memID, start: item.days.slice(0,10)});
+    });
+
     res.render("memberInfo/memberInfo", {
         member,
-        restdate : cal(member.enddate)
+        restdate : cal(member.enddate),
+        days,
+        eventList: JSON.stringify(arr)
     });
   };
 
