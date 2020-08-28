@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="../../public/stylesheets/header.css" type="text/css">
+<link rel="stylesheet" href="../../public/stylesheets/header_.css" type="text/css">
 
 <script>
 $('registButton').click(function(event){  //버튼을 클릭 했을시 popupOpen 함수 출력 
@@ -14,11 +14,15 @@ $('registButton').click(function(event){  //버튼을 클릭 했을시 popupOpen
 	}
 </script>
 
-<header
-  class="row pt-5 pb-2 border-primary mb-4"
->
-  <div class="col-10 pb-4 text-center">
-      <button onclick="popupOpen('/add-member')" width="300" height="105">회원 등록</button>
-        <button onclick="popupOpen('/search')" width="300" height="105">회원조회</button>
-  </div>
+<header class="header clearfix">
+  <div class="clearfix display-flex align-items contentHolder" data-items="center">
+      <div class="logo"><a href=""><img src="https://blog.kakaocdn.net/dn/c5ADaK/btqzdyDErjo/NSTnwNEfkV1SdHRALZCtO1/img.jpg" alt="logo Placeholder"></a></div>
+      <nav class="menu">
+          <ol>
+    <li class="mainMenu" onclick="popupOpen('/add-member')"><a href="">회원등록</a></li>
+    <li class="mainMenu" onclick="popupOpen('/search')"><a href="">회원조회</a></li>
+    </ol>
+    </nav>
+    </div>
+
 </header>
