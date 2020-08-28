@@ -1,7 +1,6 @@
 <%- include('../includes/head.ejs') %>
 
 <body>
-    <%- include('../includes/header.ejs') %>
 
     <div>
         <form name="bodyinfo" action="/add-bodyinfo/<%= member.id %>" method="POST">
@@ -9,7 +8,7 @@
                 <input type="text" class="form-control" name="weight" id="weight" placeholder="몸무게 입력" />
             </div>
             <div>
-                <input type="submit" class="weight submit" value="정보 추가" />
+                <input type="submit" class="weight submit" onclick = "window.close()" value="정보 추가" />
             </div>
         </form>
     </div>

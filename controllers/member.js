@@ -25,7 +25,7 @@ exports.getMemberInfo = async (req, res, next) => {
     var arr = new Array();
 
     await attends.forEach(function(item, index, arr2){
-        arr.push({title: item.memID, start: item.days.slice(0,10)});
+        arr.push({title: item.days.slice(10), start: item.days.slice(0,10)});
     });
 
     res.render("memberInfo/memberInfo", {

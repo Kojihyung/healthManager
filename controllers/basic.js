@@ -19,20 +19,10 @@ exports.getHome = async (req, res, next) => {
     const existed = await Member.findOne({
       where: { id: attendee.memberID }
     })
-    const attends = await AttendedDay.findAll({
-      where: { memID: 1 }
-    });
-    var arr = new Array();
-
-    await attends.forEach(function (item, index, arr2) {
-      arr.push({ title: item.memID, start: item.days.slice(0, 10) });
-    });
-
     res.render("home", {
       members: rows,
       member: existed,
       restdate: cal(existed.enddate),
-      eventList: JSON.stringify(arr),
     })
   }
   catch (e) {
@@ -45,8 +35,7 @@ exports.getHome = async (req, res, next) => {
       res.render("home", {
         members: rows,
         member: [{ id: null, name: null, phoneNumber: null, startdate: null, enddate: null }],
-        restdate: 0,
-        eventList: []
+        restdate: 0
       })
     }
     catch (e) {
@@ -54,8 +43,7 @@ exports.getHome = async (req, res, next) => {
       res.render("home", {
         members: [{ id: null, name: null, phoneNumber: null, startdate: null, enddate: null }],
         member: [{ id: null, name: null, phoneNumber: null, startdate: null, enddate: null }],
-        restdate: 0,
-        eventList: []
+        restdate: 0
       })
 
     }

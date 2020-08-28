@@ -13,7 +13,7 @@ const Body = sequelize.define("bodyinfo", {
     type: Sequelize.INTEGER,
     allowNull: true,
   },
-  memID: {
+  memberID: {
     type: Sequelize.INTEGER,
     allowNull: true,
   }

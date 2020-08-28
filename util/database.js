@@ -15,6 +15,7 @@ const sequelize = new Sequelize("mydb", "root", "kod993613!", { //
   port : "3306",
   dialectOptions: { charset: "utf8mb4", dateStrings: true, typeCast: true },
   logging: false,
+  timezone: '+09:00',
 });
 
 module.exports = { sequelize, DB_INFO };
