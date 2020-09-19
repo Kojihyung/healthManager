@@ -7,6 +7,26 @@ function cal(enddate){
     return rest;
 }
 
+exports.addBoxDuedate = async (req) => {
+  const user = await Member.findOne({ where: { id: req.params.memberId } });
+  Member.update({ duedate_box: parseInt(user.duedate_box) + parseInt(req.body.date) }, { where: { id: req.params.memberId } });
+  window.location.reload();
+}
+
+exports.addDate = async (req) => {
+  const user = await Member.findOne({ where: { id: req.params.memberId } });
+  Member.update({ enddate: user.enddate.setDate(user.enddate.getDate() + req.body.date) }, { where: { id: req.params.memberId } });
+  window.location.reload();
+}
+
+exports.deleteAll = async () => {
+  await Member.destroy();
+}
+
+exports.deleteMember = async (req, res, next) => {
+  await Member.destroy({ where: { id: req.params.memberId } });
+}
+
 exports.getMemberInfo = async (req, res, next) => {
 
     const id_ = await req.params.memberId;

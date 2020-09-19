@@ -17,10 +17,7 @@
                     <td class="name text-center"><%= member.phoneNumber %></member>
                     </td>
                 </tr>
-                <tr style="cursor:hand">
-                    <td class="id text-center">시작일</td>
-                    <td class="name text-center"><%= member.startdate %></td>
-                </tr>
+                
                 <tr style="cursor:hand">
                     <td class="id text-center">종료일</td>
                     <td class="name text-center"><%= member.enddate %></td>
@@ -28,6 +25,10 @@
                 <tr style="cursor:hand">
                     <td class="id text-center">남은기간</td>
                     <td class="name text-center"><%= restdate %></td>
+                </tr>
+                <tr style="cursor:hand">
+                    <td class="id text-center">사물함기간</td>
+                    <td class="name text-center"><%= member.duedate_box %></td>
                 </tr>
             </tbody>
         </table>

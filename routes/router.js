@@ -18,6 +18,11 @@ router.get("/add-member", function (req, res) {
 router.post("/add-member", postController.getAddMember);
 
 router.get("/member/:memberId", memberController.getMemberInfo);
+router.post("/delete/:memberId", memberController.deleteMember);
+router.post("/delete/all", memberController.deleteAll);
+
+router.post("/boxAdd/:memberId", memberController.addBoxDuedate);
+router.post("/dateAdd/:memberId", memberController.addDate);
 
 router.get("/", basicController.getHome);
 

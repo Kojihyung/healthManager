@@ -47,10 +47,6 @@
                     </td>
                 </tr>
                 <tr style="cursor:hand">
-                    <td class="id text-center">시작일</td>
-                    <td class="name text-center"><%= member.startdate %></td>
-                </tr>
-                <tr style="cursor:hand">
                     <td class="id text-center">종료일</td>
                     <td class="name text-center"><%= member.enddate %></td>
                 </tr>
@@ -58,10 +54,22 @@
                     <td class="id text-center">남은기간</td>
                     <td class="name text-center"><%= restdate %></td>
                 </tr>
+                <tr style="cursor:hand">
+                    <td class="id text-center">사물함기간</td>
+                    <td class="name text-center"><%= member.duedate_box %></td>
+                </tr>
             </tbody>
         </table> <br />
 
         <button onclick="location.href='/add-bodyinfo/<%=member.id %>'">몸무게 정보 추가하기</button><br />
+        <form action="/dateAdd/<%=member.id %>" method="post">
+            <input type = "number" name = "date" id = "date"/>
+            <button type = "submit">기간 +</button>
+        </form>
+        <form action="/boxAdd/<%=member.id %>" method="post">
+            <input type = "number" name = "date" id = "date"/>
+            <button type = "submit">사물함 +</button>
+        </form>
     </div>
 
     

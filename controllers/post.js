@@ -16,6 +16,7 @@ exports.getAddMember = async (req, res, next) => {
             phoneNumber: req.body.phoneNumber,
             startdate: req.body.startdate,
             enddate: req.body.enddate,
+            duedate_box: req.body.duedate,
         },);
     
           const newMember = await Member.findOne({

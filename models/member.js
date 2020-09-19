@@ -13,6 +13,10 @@ const Member = sequelize.define("member", {
     type: Sequelize.STRING,
     allowNull: false,
   },
+  duedate_box: { // 이름(중복 가능)
+    type: Sequelize.INTEGER,
+    allowNull: true,
+  },
   phoneNumber: { // 전화번호(중복 불가)
     type: Sequelize.STRING,
     allowNull: false,

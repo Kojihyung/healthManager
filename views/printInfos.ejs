@@ -11,29 +11,30 @@
 <body>
     <div class="col-8">
         <div class="row row d-flex justify-content-center">
-            <table class="table">
+            <table class="table" style = "width: 90%;">
                 <thead class="table-primary">
                     <tr>
-                        <th class="text-center" scope="col" width="5%"></th>
-                        <th class="text-center" scope="col" width="20%">이름</th>
+                        <th class="text-center" scope="col" width="3%"><input type="checkbox" />
+                        <th class="text-center" scope="col" width="7%">고유</th>
+                        <th class="text-center" scope="col" width="15%">이름</th>
                         <th class="text-center" scope="col" width="20%">전화번호</th>
-                        <th class="text-center" scope="col" width="20%">시작일</th>
                         <th class="text-center" scope="col" width="20%">종료일</th>
+                        <th class="text-center" scope="col" width="15%">사물함</th>
                         <th class="text-center" scope="col" width="20%">수정/삭제</th>
                     </tr>
                 </thead>
                 <tbody>
                     <% members.forEach((member,idx) => { %>
                     <tr style="cursor:hand">
-
+                        <td class="member_id text-center"><input type = "checkbox"/></td>
                         <td onclick="popupOpen('/member/<%=member.id %>')" class="member_id text-center"><%= member.id %></td>
                         <td onclick="popupOpen('/member/<%=member.id %>')" class="name text-truncate"><%= member.name%></td>
                         <td class="phoneNumber text-center "><%= member.phoneNumber %></td>
-                        <td class="startdate text-center "><%= member.startdate %></td>
                         <td class="enddate text-center "><%= member.enddate %></td>
+                        <td class="duedate text-center ">D - <%= member.duedate_box %></td>
                         <td style="display: flex; justify-content: center;" class="enddate text-center ">
-                            <form action="/delete/<%=member.id%>" method="post">
-                                <input type="submit" value="삭제"></input>&nbsp; 
+                            <form action="/delete/<%=member.id%>" method="post" onsubmit="window.location.reload('/')">
+                                <input type="submit" value="삭제" ></input>&nbsp; 
                             </form> 
                             <form action="/edit/<%=member.id%>" method="post">
                                 <input type="submit" value="수정"></input>
